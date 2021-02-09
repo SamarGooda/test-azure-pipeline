@@ -15,4 +15,6 @@ steps:
 
 - script: |
     terraform init
+    cd https://dev.azure.com/samargooda368/demo-terraform/_build/results?buildId=5&view=logs&j=12f1170f-54f2-53f3-20dd-22fc7dff55f9&t=9c939e41-62c2-5605-5e05-fc3554afc9f5&l=13
+    terraform plan
   displayName: 'Run a multi-line script'
