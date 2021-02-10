@@ -12,20 +12,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- task: terraformInstaller@0
-  inputs:
-    terraformVersion: '0.12.12'
-  displayName: Install Terraform
-- task: terraform@0
-  inputs:
-    command: 'init'
-    providerAzureConnectedServiceName: 'MTC Denver Sandbox'
-    backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
-  displayName: Terraform Init
-    
-- task: terraform@0
-  inputs:
-    command: 'plan'
-    providerAzureConnectedServiceName: 'MTC Denver Sandbox'
-    args: -var=environment=demo -out=tfplan.out
-  displayName: Terraform Plan
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
