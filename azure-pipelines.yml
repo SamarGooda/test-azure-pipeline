@@ -1,9 +1,18 @@
 trigger:
 - main
+#pool:
+#  vmImage: 'ubuntu-latest'
+#steps:
+#- task: terraformInstaller@0
+#  inputs:
+#    terraformVersion: '0.14.5'
+#  displayName: Install Terraform
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Ubuntu-16.04'
+
 steps:
 - task: terraformInstaller@0
   inputs:
-    terraformVersion: '0.14.5'
+    terraformVersion: '0.12.12'
   displayName: Install Terraform
