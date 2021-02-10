@@ -9,9 +9,14 @@ trigger:
 #  displayName: Install Terraform
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+
+- task: terraformInstaller@0
+  inputs:
+    terraformVersion: '0.14.5'
+  displayName: Install Terraform
