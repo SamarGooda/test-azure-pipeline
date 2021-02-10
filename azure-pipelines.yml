@@ -7,7 +7,6 @@ trigger:
 #  inputs:
 #    terraformVersion: '0.14.5'
 #  displayName: Install Terraform
-
 pool:
   vmImage: 'ubuntu-latest'
 
