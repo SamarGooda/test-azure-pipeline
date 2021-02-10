@@ -19,3 +19,17 @@ steps:
   inputs:
     terraformVersion: '0.14.5'
   displayName: Install Terraform
+
+- task: terraform@0
+  inputs:
+    command: 'init'
+    #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
+    #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
+  displayName: Terraform Init
+    
+- task: terraform@0
+  inputs:
+    command: 'plan'
+    #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
+    args:  -out=tfplan.out
+  displayName: Terraform Plan
