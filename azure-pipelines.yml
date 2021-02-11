@@ -17,7 +17,7 @@ stages:
   - stage: Terraform
     displayName: Terraform Create
     jobs:
-      - job: Trigger Terraform
+      - job: Trigger_Terraform
         displayName: Trigger Terraform
         container: terraform-runtime
         steps:
