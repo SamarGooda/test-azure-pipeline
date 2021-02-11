@@ -1,6 +1,7 @@
 variables:
   terraformstoragerg: 'terraformrg'
   terraformstorageaccount: 'terraformstorage0274eed9'
+  storagekey: 'PipelineWillGetThisValueRuntime'
 
 trigger:
 - main
@@ -53,20 +54,33 @@ steps:
     backendAWSBucketName: terraform
     backendAWSKey: terraform.tfstat
 
-- task:  terraform@0
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : plan'
   inputs:
-   command: 'plan'
-    #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
-    #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
-   configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
-  displayName: 'Terraform plan'
-#- task: terraform@0
-  #inputs:
-    #command: 'plan'
-    #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
-    #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
-   # args:  -out=tfplan.out
-  #displayName: Terraform Plan
+    provider: aws
+    command: plan
+    workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform'
+    environmentServiceNameAWS: 'test-service'
+    backendAzureRmResourceGroupName: '$(terraformstoragerg)'
+    backendAzureRmStorageAccountName: '$(terraformstorageaccount) '
+    backendAzureRmContainerName: terraform
+    backendAzureRmKey: '$(storagekey)'
+
+# - task:  terraform@0
+#   inputs:
+#    command: 'plan'
+#     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
+#     #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
+#    configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
+#   displayName: 'Terraform plan'
+# #- task: terraform@0
+#   #inputs:
+#     #command: 'plan'
+#     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
+#     #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
+#    # args:  -out=tfplan.out
+#   #displayName: Terraform Plan
 
 
 
