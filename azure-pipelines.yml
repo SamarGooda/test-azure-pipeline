@@ -31,10 +31,12 @@ stages:
           - checkout: self
             fetchDepth: 1
 
-          - task: Bash@3
-            inputs:
-              filePath: './scripts/terraform-download.sh'
-            displayName: 'Terraform Download'
+          # - task: Bash@3
+          #   inputs:
+          #     filePath: './scripts/terraform-download.sh'
+          #   displayName: 'Terraform Download'
+          - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+            displayName: 'Install Terraform '
 
           # - task: AzureCLI@1
           #   inputs:
