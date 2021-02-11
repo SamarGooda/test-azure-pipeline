@@ -13,6 +13,12 @@ pool:
 # - script: echo Hello, world!
 #   displayName: 'Run a one-line script'
 
+resources:
+  containers:
+    - container: terraform-runtime
+      image: foo.dkr.ecr.eu-west-1.amazonaws.com/terraform-runtime # Use the docker image with required dependencies 
+      endpoint: AWS_SANDBOX # Azure DevOps service connection to the ECR
+
 stages:
   - stage: Terraform
     displayName: Terraform Create
