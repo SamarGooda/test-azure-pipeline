@@ -12,7 +12,7 @@ steps:
 - task: terraformInstaller@0
   inputs:
     terraformVersion: '0.14.5'
-  displayName:  ms-devlabs.custom-terraform-tasks
+  displayName:  terraform-tasks
 
 
 #- task: AWSShellScript@1
@@ -41,4 +41,3 @@ steps:
   #displayName: Terraform Plan
 
 
-  #the task name terraformInstaller is ambiguous. Specify one of the following identifiers to resolve the ambiguity: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller, charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-installer.TerraformInstaller
