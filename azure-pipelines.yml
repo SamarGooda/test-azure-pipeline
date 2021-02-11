@@ -9,36 +9,40 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-# steps:
-# - script: echo Hello, world!
-#   displayName: 'Run a one-line script'
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
-resources:
-  containers:
-    - container: terraform-runtime
-      image: foo.dkr.ecr.eu-west-1.amazonaws.com/terraform-runtime # Use the docker image with required dependencies 
-      endpoint: AWS_SANDBOX # Azure DevOps service connection to the ECR
+- task: terraformInstaller@0
+  inputs:
+    terraformVersion: '0.14.5'
+  displayName:  terraform-tasks
+- task: SSH@0
+  inputs:
+    runOptions: 'commands'
+    commands: |
+      terraform init
+      terraform plan
+      terraform apply
+    readyTimeout: '20000'
 
-stages:
-  - stage: Terraform
-    displayName: Terraform Create
-    jobs:
-      - job: Trigger_Terraform
-        displayName: Trigger Terraform
-        container: terraform-runtime
-        steps:
-          - bash: terraform init 
-            displayName: "Initialize Terraform"
-          - bash: terraform plan 
-            displayName: "Planning Terraform"
-          - bash: terraform apply
-            displayName: "Apply terraform"
+# stages:
+#   - stage: Terraform
+#     displayName: Terraform Create
+#     jobs:
+#       - job: Trigger_Terraform
+#         displayName: Trigger Terraform
+#         # container: terraform-runtime
+#         steps:
+#           - bash: terraform init 
+#             displayName: "Initialize Terraform"
+#           - bash: terraform plan 
+#             displayName: "Planning Terraform"
+#           - bash: terraform apply
+#             displayName: "Apply terraform"
 
 
-# - task: terraformInstaller@0
-#   inputs:
-#     terraformVersion: '0.14.5'
-#   displayName:  terraform-tasks
+
 
 # - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
 #   displayName: 'Install Terraform 0.14.5'
