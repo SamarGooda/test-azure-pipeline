@@ -42,7 +42,7 @@ steps:
    command: 'plan'
     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
     #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
-    configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
+   configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
   displayName: 'Terraform plan'
 #- task: terraform@0
   #inputs:
