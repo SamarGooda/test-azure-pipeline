@@ -1,3 +1,7 @@
+variables:
+  terraformstoragerg: 'terraformrg'
+  terraformstorageaccount: 'terraformstorage0274eed9'
+
 trigger:
 - main
 
@@ -28,14 +32,26 @@ steps:
     #failOnStandardError: false
  # displayName: 'cdk deploy'
 
-- task:  terraform@0
+# - task:  terraform@0
+#   inputs:
+#    command: 'init'
+#     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
+#     #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
+#     #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
+#   displayName: 'Terraform Init'
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : init'
   inputs:
-   command: 'init'
-    #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
-    #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
-    #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
-  displayName: 'Terraform Init'
-    
+    provider: aws
+    workingDirectory: '$(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform'
+    backendAzureRmResourceGroupName: '$(terraformstoragerg)'
+    backendAzureRmStorageAccountName: '$(terraformstorageaccount) '
+    backendAzureRmContainerName: terraform
+    backendAzureRmKey: terraform.tfstate
+    backendServiceAWS: 'test-service'
+    backendAWSBucketName: terraform
+    backendAWSKey: terraform.tfstat
 
 - task:  terraform@0
   inputs:
@@ -51,5 +67,7 @@ steps:
     #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
    # args:  -out=tfplan.out
   #displayName: Terraform Plan
+
+
 
 
