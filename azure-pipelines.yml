@@ -28,13 +28,13 @@ steps:
     #failOnStandardError: false
  # displayName: 'cdk deploy'
 
-- task: terraform@0
+- task:  ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
   inputs:
    command: 'init'
     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
     #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
     #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
- displayName: Terraform Init
+ displayName: 'Terraform Init'
     
 #- task: terraform@0
   #inputs:
