@@ -34,7 +34,7 @@ steps:
     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
     #backendAzureProviderStorageAccountName: 'mtcdenterraformsandbox'
     #configrationDirectory: $(System.DefaultWorkingDirectory)/_Terraform-CI/drop/Terraform
- displayName: 'Terraform Init'
+  displayName: 'Terraform Init'
     
 #- task: terraform@0
   #inputs:
