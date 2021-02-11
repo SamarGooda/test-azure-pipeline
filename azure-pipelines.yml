@@ -28,7 +28,7 @@ steps:
     #failOnStandardError: false
  # displayName: 'cdk deploy'
 
-- task:  terraform@0
+- task:  TerraformCLI
   inputs:
    command: 'init'
     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
@@ -37,7 +37,7 @@ steps:
   displayName: 'Terraform Init'
     
 
-- task:  terraform@0
+- task:  TerraformCLI
   inputs:
    command: 'plan'
     #providerAzureConnectedServiceName: 'MTC Denver Sandbox'
