@@ -30,3 +30,12 @@ steps:
     backendAWSKey: terraform.tfstat
 
 
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform apply'
+  inputs:
+    provider: aws
+    command: apply
+    environmentServiceNameAWS: 'Test2-azure-pipeline'
+    backendServiceAWS: 'Test2-azure-pipeline'
+    backendAWSBucketName: 'test-aws-samar'
+    backendAWSKey: terraform.tfstat
