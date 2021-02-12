@@ -15,6 +15,7 @@ steps:
   displayName: 'Terraform init'
   inputs:
     provider: aws
+    workingDirectory: terraform
     backendServiceAWS: 'Test2-azure-pipeline'
     backendAWSBucketName: 'test-aws-samar'
     backendAWSKey: terraform.tfstat
@@ -24,6 +25,7 @@ steps:
   inputs:
     provider: aws
     command: plan
+    workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
     backendAWSBucketName: 'test-aws-samar'
@@ -35,6 +37,7 @@ steps:
   inputs:
     provider: aws
     command: apply
+    workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
     backendAWSBucketName: 'test-aws-samar'
