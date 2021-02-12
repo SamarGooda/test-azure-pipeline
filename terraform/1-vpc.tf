@@ -8,6 +8,6 @@ resource "aws_vpc" "new" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "new"
+    Name = "Edge"
   }
 }
