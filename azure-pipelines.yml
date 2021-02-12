@@ -11,6 +11,23 @@ steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
   displayName: 'Install Terraform '
 
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : aws'
+  inputs:
+    provider: aws
+    backendServiceAWS: 'Test2-azure-pipeline'
+    backendAWSBucketName: 'test-aws-samar'
+    backendAWSKey: terraform.tfstat
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform plan'
+  inputs:
+    provider: aws
+    command: plan
+    environmentServiceNameAWS: 'Test2-azure-pipeline'
+    backendServiceAWS: 'Test2-azure-pipeline'
+    backendAWSBucketName: 'test-aws-samar'
+    backendAWSKey: terraform.tfstat
 
 
 
