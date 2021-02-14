@@ -49,7 +49,7 @@
 #     backendAWSKey: terraform.tfstat
 
 trigger:
-- master
+- main
 
 
 pool:
