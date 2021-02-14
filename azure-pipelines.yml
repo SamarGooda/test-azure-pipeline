@@ -19,7 +19,7 @@ steps:
     provider: aws
     workingDirectory: terraform
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'terraform-state'
+    backendAWSBucketName:  'mysamar1234-tf-test-bucket'
     backendAWSKey: 'terraform/terraform.tfstate'
 
 
@@ -32,7 +32,7 @@ steps:
     workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'terraform-state'
+    backendAWSBucketName:  'mysamar1234-tf-test-bucket'
     backendAWSKey: 'terraform/terraform.tfstate'
 
 
@@ -46,5 +46,5 @@ steps:
     workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'terraform-state'
+    backendAWSBucketName:  'mysamar1234-tf-test-bucket'
     backendAWSKey: terraform.tfstat
