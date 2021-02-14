@@ -11,7 +11,7 @@ steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
   displayName: 'Install Terraform 0.14.4'
   inputs:
-    terraformVersion: 0.14.4
+    terraformVersion: 0.14.6
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
   displayName: 'Terraform init'
