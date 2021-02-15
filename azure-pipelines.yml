@@ -4,9 +4,6 @@ pool:
     vmImage: 'ubuntu-latest'
 
 steps:
-# - script: echo Hello, world!
-#   displayName: 'Run a one-line script'
-
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
   displayName: 'Install Terraform 0.14.6'
@@ -19,8 +16,8 @@ steps:
     provider: aws
     workingDirectory: terraform
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'mysamar1234-tf-test-bucket'
-    backendAWSKey: 'terraform/terraform.tfstate'
+    # backendAWSBucketName:  'mysamar1234-tf-test-bucket'
+    # backendAWSKey: 'terraform/terraform.tfstate'
 
 
 
@@ -32,8 +29,8 @@ steps:
     workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'mysamar1234-tf-test-bucket'
-    backendAWSKey: 'terraform/terraform.tfstate'
+    # backendAWSBucketName:  'mysamar1234-tf-test-bucket'
+    # backendAWSKey: 'terraform/terraform.tfstate'
 
 
 
