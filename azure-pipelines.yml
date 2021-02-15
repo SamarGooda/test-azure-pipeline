@@ -16,7 +16,7 @@ steps:
     provider: aws
     workingDirectory: terraform
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'taas-tt-dev-bucket'
+    backendAWSBucketName:  'taas-dev-bucket'
     backendAWSKey: 'terraform.tfstate'
 
 
@@ -29,7 +29,7 @@ steps:
     workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'taas-tt-dev-bucket'
+    backendAWSBucketName:  'taas-dev-bucket'
     backendAWSKey: 'terraform.tfstate'
 
 
@@ -43,5 +43,5 @@ steps:
     workingDirectory: terraform
     environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
-    backendAWSBucketName:  'taas-tt-dev-bucket'
+    backendAWSBucketName:  'taas-dev-bucket'
     backendAWSKey: 'terraform.tfstate'

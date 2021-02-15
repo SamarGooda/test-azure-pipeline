@@ -1,8 +1,8 @@
-resource "aws_s3_bucket" "taas-tt-dev-bucket" {
-  bucket = "taas-tt-dev-bucket"
+resource "aws_s3_bucket" "taas-dev-bucket" {
+  bucket = "taas-dev-bucket"
 
   tags = {
-    Name        = "taas-tt-dev-bucket"
+    Name        = "taas-dev-bucket"
   }
 }
 
@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "taas-tt-dev-bucket" {
 terraform {
   backend "s3" {
     # Replace this with your bucket name!
-    bucket         = "taas-tt-dev-bucket"
+    bucket         = "taas-dev-bucket"
     key            = "terraform.tfstate"
     region         =  "eu-west-1"
     # Replace this with your DynamoDB table name!
