@@ -16,16 +16,16 @@ resource "aws_s3_bucket" "taas-tt-dev-bucket" {
 #   }
 # }
 
-# terraform {
-#   backend "s3" {
-#     # Replace this with your bucket name!
-#     bucket         = "taas-tt-dev-bucket"
-#     key            = "terraform.tfstate"
-#     region         =  "eu-west-1"
-#     # Replace this with your DynamoDB table name!
-#     dynamodb_table = "terraform-up-and-running-locks"
-#     encrypt        = true
-#     profile = "test"
-#   }
+terraform {
+  backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "taas-tt-dev-bucket"
+    key            = "terraform.tfstate"
+    region         =  "eu-west-1"
+    # Replace this with your DynamoDB table name!
+    # dynamodb_table = "terraform-up-and-running-locks"
+    encrypt        = true
+    profile = "test"
+  }
 
-# }
+}
