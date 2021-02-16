@@ -27,7 +27,7 @@ steps:
     provider: aws
     command: plan
     workingDirectory: terraform
-    environmentServiceNameAWS: 'Test2-azure-pipeline'
+   # environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
     backendAWSBucketName:  'taas-tt-dev-bucket'
     backendAWSKey: 'terraform.tfstate'
@@ -41,7 +41,7 @@ steps:
     provider: aws
     command: apply
     workingDirectory: terraform
-    environmentServiceNameAWS: 'Test2-azure-pipeline'
+   # environmentServiceNameAWS: 'Test2-azure-pipeline'
     backendServiceAWS: 'Test2-azure-pipeline'
     backendAWSBucketName:  'taas-tt-dev-bucket'
     backendAWSKey: 'terraform.tfstate'
