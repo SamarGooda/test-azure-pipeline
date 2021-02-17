@@ -32,3 +32,13 @@ resource "aws_vpc" "old" {
     Name = "old"
   }
 }
+
+resource "aws_vpc" "yy" {
+  cidr_block           = "50.0.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+
+  tags = {
+    Name = "yy"
+  }
+}
